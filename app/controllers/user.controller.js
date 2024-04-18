@@ -33,7 +33,7 @@ exports.create = async(req, res) => {
         })
 
     } catch (error) {
-        return res.status(500).json({error: "An error occured"});
+        return res.status(500).json({error: "An error occured", error});
     }
 }
 
@@ -67,8 +67,7 @@ exports.auth = async(req, res) => {
                 secure: true
             });
 
-            return res.status(200).json({ success: true, accessToken });
-
+            return res.status(200)
         } else {
             return res.status(401).json({ success: false, message: "Invalid password"});
         }
