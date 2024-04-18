@@ -4,7 +4,7 @@
   "description": "Server SKPI",
   "main": "index.js",
   "scripts": {
-    "build" : "netlify deploy --prod",
+    "build" : "npx prisma generate && netlify deploy --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
