@@ -2,11 +2,11 @@
 const datas = require("../controllers/data.controller");
 
 // MIDDLEWARE
-const middleware = require("../middleware/middleware");
+const { authenticateToken } = require("../middleware/middleware");
 
 // ROUTER
 const router =  require("express").Router();
 
-router.get('/data', middleware.authenticateToken, datas.getDashboard);
+router.get('/data-management', authenticateToken, datas.getDashboard);
 
 module.exports = router;
