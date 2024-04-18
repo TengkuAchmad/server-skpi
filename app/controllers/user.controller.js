@@ -70,6 +70,7 @@ exports.auth = async(req, res) => {
             });
 
             return res.status(200).json({ success: true })
+            
         } else {
             return res.status(401).json({ success: false, message: "Invalid password"});
         }
