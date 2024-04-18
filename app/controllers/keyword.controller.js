@@ -45,7 +45,7 @@ exports.findAll = async(req, res) => {
     try {
         const keywords = await prisma.data_Keyword.findMany({});
 
-        return res.status(200).json(keywords);
+        return res.status(200).send(keywords);
 
     } catch (error) {
         return res.status(500).json({ error : "An error occured"});
