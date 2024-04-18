@@ -10,7 +10,7 @@ const cookieParser      = require("cookie-parser")
 // APP CONFIGURATION
 const app               = express()
 
-var corsOption          = { origin: "*" }
+var corsOption          = { origin: "*", credentials: true }
 
 app.use(cors(corsOption))
 
