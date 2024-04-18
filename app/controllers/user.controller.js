@@ -66,11 +66,11 @@ exports.auth = async(req, res) => {
             res.cookie('access_token', accessToken, { 
                 maxAge: 24 * 60 * 60 * 1000, 
                 httpOnly: true, 
-                secure: true
+                secure: false
             });
 
             return res.status(200).json({ success: true })
-            
+
         } else {
             return res.status(401).json({ success: false, message: "Invalid password"});
         }
