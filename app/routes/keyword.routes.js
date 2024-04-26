@@ -8,7 +8,7 @@ const { authenticateToken } = require("../middleware/middleware");
 const router =  require("express").Router();
 
 router.post("/keyword-management", authenticateToken, keyword.create);
-router.get("/keyword-management/find", authenticateToken, keyword.findOne);
+router.post("/keyword-management/find", authenticateToken, keyword.findOne);
 router.get("/keyword-management", authenticateToken, keyword.findAll);
 router.put("/keyword-management/:id", authenticateToken, keyword.update);
 router.delete("/keyword-management", authenticateToken, keyword.deleteAll);
