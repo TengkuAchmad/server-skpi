@@ -26,11 +26,11 @@ exports.create = async(req, res) => {
 
 exports.findOne = async(req, res) => {
     try {
-        const id = req.params.id;
+        const term = req.params.term;
 
-        const keywords = await prisma.data_Keyword.findUnique({
+        const keywords = await prisma.data_Keyword.findMany({
             where : {
-                UUID_DK : id,
+                Payload_DK: { contains: term },
             }
         });
 
