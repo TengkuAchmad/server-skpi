@@ -26,7 +26,7 @@ exports.create = async(req, res) => {
 
 exports.findOne = async(req, res) => {
     try {
-        const term = req.params.term;
+        const term = req.body.term;
 
         const keywords = await prisma.data_Keyword.findMany({
             where : {
