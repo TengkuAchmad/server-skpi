@@ -60,18 +60,8 @@ exports.auth = async(req, res) => {
 
         if (await argon2.verify(user.Password_UA, req.body.password)) {
             const accessToken = jwt.sign({ userID: user.UUID_UA }, 'skpiapilactelkom', { expiresIn: '1d'});
-            
-            res.clearCookie('access_token');
 
-            res.cookie('access_token', accessToken, { 
-                maxAge: 24 * 60 * 60 * 1000, 
-                httpOnly: true, 
-                sameSite: 'none',
-                secure: false
-                
-            });
-
-            return res.status(200).json({ success: true })
+            return res.status(200).json({ success: true, accessToken })
 
         } else {
             return res.status(401).json({ success: false, message: "Invalid password"});
